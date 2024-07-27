@@ -7,7 +7,7 @@ mixin FirebaseAuthService {
   final _auth = FirebaseAuth.instance;
 
   @protected
-  Future<String?> sendOtp(BuildContext context, {required String phone}) async {
+  Future<String?> sendOtp(BuildContext context, String phone) async {
     final Completer<String> completer = Completer<String>();
 
     try {
@@ -18,6 +18,7 @@ mixin FirebaseAuthService {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("OTP Sent")),
           );
+
           completer.complete(verificationId);
         },
         verificationFailed: (FirebaseAuthException e) {
@@ -26,7 +27,7 @@ mixin FirebaseAuthService {
             builder: (BuildContext context) => AlertDialog(
               title: const Text('Error Sending OTP'),
               content: Text('${e.message}'),
-              actions: <Widget>[
+              actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context, 'OK'),
                   child: const Text('OK'),
@@ -63,16 +64,5 @@ mixin FirebaseAuthService {
 
     final res = await _auth.signInWithCredential(credential);
     return res;
-  }
-
-  @protected
-  Future<bool> anonymous() async {
-    try {
-      await _auth.signInAnonymously();
-      return true;
-    } on FirebaseAuthException catch (e) {
-      debugPrint("Error Sending OTP: $e");
-      return false;
-    }
   }
 }

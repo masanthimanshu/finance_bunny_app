@@ -1,4 +1,5 @@
 import 'package:finance_bunny/components/auth_wrapper.dart';
+import 'package:finance_bunny/firebase/firebase_auth_service.dart';
 import 'package:finance_bunny/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -7,17 +8,19 @@ class OtpScreen extends StatefulWidget {
   const OtpScreen({
     super.key,
     required this.phone,
+    required this.verId,
     required this.country,
   });
 
   final String phone;
+  final String verId;
   final String country;
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
 }
 
-class _OtpScreenState extends State<OtpScreen> {
+class _OtpScreenState extends State<OtpScreen> with FirebaseAuthService {
   String _otp = "";
 
   void _navigateNext() {
@@ -26,7 +29,9 @@ class _OtpScreenState extends State<OtpScreen> {
         const SnackBar(content: Text("Enter OTP")),
       );
     } else if (validateOtp(_otp)) {
-      Navigator.pushNamedAndRemoveUntil(context, "/home", (_) => false);
+      verifyOtp(otp: _otp, verId: widget.verId).then((res) {
+        Navigator.pushNamedAndRemoveUntil(context, "/home", (_) => false);
+      });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Invalid OTP")),
