@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "402669899669",
+    "project_id": "finance-bunny-83a83",
+    "storage_bucket": "finance-bunny-83a83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402669899669:android:25f5f3640437e709c0309c",
+        "android_client_info": {
+          "package_name": "com.app.finance_bunny"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPy16hEK-yTAkkK8STAi_LyX2HeY_iikA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
