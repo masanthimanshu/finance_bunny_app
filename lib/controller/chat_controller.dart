@@ -1,8 +1,8 @@
-import 'package:finance_bunny/firebase/remote_config/remote_config.dart';
+import 'package:finance_bunny/firebase/remote_config_service.dart';
 import 'package:finance_bunny/model/chat_model.dart';
 import 'package:finance_bunny/network/requests.dart';
 
-class ChatController with HttpRequests, RemoteConfig {
+class ChatController with HttpRequests, RemoteConfigService {
   Future<ChatModel?> getData(String input) async {
     final Map<String, dynamic> data = {
       "messages": [

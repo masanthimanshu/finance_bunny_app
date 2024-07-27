@@ -1,7 +1,7 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 
-mixin RemoteConfig {
+mixin RemoteConfigService {
   final _config = FirebaseRemoteConfig.instance;
 
   @protected

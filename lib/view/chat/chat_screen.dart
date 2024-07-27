@@ -28,7 +28,7 @@ class _ChatScreenState extends State<ChatScreen> {
           image: DecorationImage(
             opacity: 0.5,
             fit: BoxFit.cover,
-            image: AssetImage("assets/images/background.png"),
+            image: AssetImage("assets/images/chat_bg.png"),
           ),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [

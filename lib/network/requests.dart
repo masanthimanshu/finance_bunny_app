@@ -1,10 +1,10 @@
 import "dart:convert";
 
-import "package:finance_bunny/firebase/remote_config/remote_config.dart";
+import "package:finance_bunny/firebase/remote_config_service.dart";
 import "package:flutter/material.dart";
 import "package:http/http.dart" as http;
 
-mixin HttpRequests implements RemoteConfig {
+mixin HttpRequests implements RemoteConfigService {
   @protected
   Future<String?> postRequest({
     required String url,
