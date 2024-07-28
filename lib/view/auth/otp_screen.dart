@@ -1,5 +1,5 @@
 import 'package:finance_bunny/components/auth_wrapper.dart';
-import 'package:finance_bunny/firebase/firebase_auth_service.dart';
+import 'package:finance_bunny/firebase/auth_service.dart';
 import 'package:finance_bunny/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -20,7 +20,7 @@ class OtpScreen extends StatefulWidget {
   State<OtpScreen> createState() => _OtpScreenState();
 }
 
-class _OtpScreenState extends State<OtpScreen> with FirebaseAuthService {
+class _OtpScreenState extends State<OtpScreen> with AuthService {
   String _otp = "";
 
   void _navigateNext() {

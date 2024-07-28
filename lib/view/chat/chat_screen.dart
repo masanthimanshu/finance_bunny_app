@@ -1,4 +1,5 @@
 import 'package:finance_bunny/components/chat_field.dart';
+import 'package:finance_bunny/controller/chat_controller.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -8,8 +9,22 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-        ChatField(),
+      body: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+        StreamBuilder(
+          stream: ChatController().getChats(),
+          builder: (context, snapshot) => Expanded(
+            child: snapshot.hasData && snapshot.data!.isNotEmpty
+                ? ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    padding: const EdgeInsets.all(20),
+                    itemBuilder: (e, index) {
+                      return const Text("data");
+                    },
+                  )
+                : const Center(child: Text("No Chats Yet")),
+          ),
+        ),
+        const ChatField(),
       ]),
     );
   }

@@ -14,8 +14,8 @@ class CustomRoot extends StatefulWidget {
 class _CustomRootState extends State<CustomRoot> with RemoteConfigService {
   @override
   void initState() {
-    initializeRemoteConfig();
     super.initState();
+    initializeRemoteConfig();
   }
 
   @override

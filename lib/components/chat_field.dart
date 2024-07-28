@@ -11,19 +11,10 @@ class ChatField extends StatefulWidget {
 class _ChatFieldState extends State<ChatField> {
   final _controller = TextEditingController();
 
-  void _handleSubmit() async {
-    final data = await ChatController().getData(_controller.text);
-    _controller.clear();
-
-    debugPrint(data?.category.toString());
-    debugPrint(data?.subCategory.toString());
-    debugPrint(data?.amount.toString());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -48,7 +39,10 @@ class _ChatFieldState extends State<ChatField> {
           ),
         ),
         GestureDetector(
-          onTap: _handleSubmit,
+          onTap: () {
+            ChatController().handleChat(_controller.text);
+            _controller.clear();
+          },
           child: Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(

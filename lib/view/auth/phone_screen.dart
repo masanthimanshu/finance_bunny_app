@@ -1,6 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:finance_bunny/components/auth_wrapper.dart';
-import 'package:finance_bunny/firebase/firebase_auth_service.dart';
+import 'package:finance_bunny/firebase/auth_service.dart';
 import 'package:finance_bunny/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,7 +14,7 @@ class PhoneScreen extends StatefulWidget {
   State<PhoneScreen> createState() => _PhoneScreenState();
 }
 
-class _PhoneScreenState extends State<PhoneScreen> with FirebaseAuthService {
+class _PhoneScreenState extends State<PhoneScreen> with AuthService {
   String _phone = "";
   String _countryCode = "+91";
 
