@@ -15,7 +15,7 @@ class _ChatFieldState extends State<ChatField> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(15),
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(50),
@@ -35,6 +35,7 @@ class _ChatFieldState extends State<ChatField> {
               hintStyle: TextStyle(color: Colors.grey),
               hintText: "Lunch from zomato 250",
               border: InputBorder.none,
+              icon: Icon(Icons.tag),
             ),
           ),
         ),
