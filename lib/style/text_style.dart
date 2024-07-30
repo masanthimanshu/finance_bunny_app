@@ -3,18 +3,26 @@ import 'package:flutter/material.dart';
 enum CustomTextStyle {
   heading,
   subHeading,
-  whiteHeading,
   mediumHeading,
   boldSubHeading,
+  graySubHeading,
+  tealSubHeading,
 }
 
 extension CustomTextStyleExtension on CustomTextStyle {
   TextStyle get style {
     switch (this) {
-      case CustomTextStyle.whiteHeading:
+      case CustomTextStyle.graySubHeading:
         return const TextStyle(
-          fontSize: 28,
-          color: Colors.white,
+          fontSize: 14,
+          color: Colors.grey,
+          fontWeight: FontWeight.bold,
+        );
+
+      case CustomTextStyle.tealSubHeading:
+        return const TextStyle(
+          fontSize: 14,
+          color: Colors.teal,
           fontWeight: FontWeight.bold,
         );
 

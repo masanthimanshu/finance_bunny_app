@@ -9,7 +9,7 @@ class ChatController with HttpRequests, RemoteConfigService, DatabaseService {
     final Map<String, dynamic> data = {
       "messages": [
         {"role": "system", "content": getStringData("systemPrompt")},
-        {"role": "user", "content": input.toLowerCase()},
+        {"role": "user", "content": input},
       ]
     };
 
@@ -21,10 +21,10 @@ class ChatController with HttpRequests, RemoteConfigService, DatabaseService {
 
       final Map<String, dynamic> out = {
         "apiResponse": res,
+        "userPrompt": input,
         "amount": amount.last,
         "category": temp.first,
         "subCategory": temp.last,
-        "userPrompt": input.toLowerCase(),
         "user": FirebaseAuth.instance.currentUser!.uid,
       };
 
