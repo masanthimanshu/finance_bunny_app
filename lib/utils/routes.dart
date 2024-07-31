@@ -1,7 +1,7 @@
-import 'package:finance_bunny/view/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 import '/view/auth/phone_screen.dart';
+import '/view/chat/chat_screen.dart';
 import '/view/home/home_screen.dart';
 import 'custom_root.dart';
 
