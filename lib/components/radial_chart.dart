@@ -1,4 +1,5 @@
 import 'package:finance_bunny/data/color_data.dart';
+import 'package:finance_bunny/model/radial_chart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -9,20 +10,25 @@ class RadialChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SfCircularChart(series: [
-        RadialBarSeries(
+        RadialBarSeries<RadialChartModel, String>(
           gap: "5%",
           maximumValue: 100,
           trackOpacity: 0.05,
           useSeriesColor: true,
           dataSource: chartData,
           cornerStyle: CornerStyle.bothCurve,
-          yValueMapper: (data, index) => chartData[index],
-          xValueMapper: (data, index) => colorData[index].name,
-          pointColorMapper: (data, index) => colorData[index].colors,
+          xValueMapper: (data, index) => chartData[index].type,
+          yValueMapper: (data, index) => chartData[index].amount,
+          pointColorMapper: (data, index) => colorData[chartData[index].type],
         ),
       ]),
     );
   }
 }
 
-final List<int> chartData = [10, 10, 20, 50];
+final List<RadialChartModel> chartData = [
+  const RadialChartModel(type: "Income", amount: 75),
+  const RadialChartModel(type: "Expense", amount: 50),
+  const RadialChartModel(type: "Savings", amount: 20),
+  const RadialChartModel(type: "Investment", amount: 20),
+];

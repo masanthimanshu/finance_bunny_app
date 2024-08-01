@@ -49,11 +49,11 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     width: 20,
                     height: 20,
-                    color: colorData[index].colors,
+                    color: colorData[chartData[index].type],
                   ),
                   const SizedBox(width: 10),
                   Text(
-                    colorData[index].name,
+                    chartData[index].type,
                     style: CustomTextStyle.boldSubHeading.style,
                   ),
                 ]);
