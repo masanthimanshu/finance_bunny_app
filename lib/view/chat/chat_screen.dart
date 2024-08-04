@@ -1,6 +1,6 @@
 import 'package:finance_bunny/components/chat_card.dart';
 import 'package:finance_bunny/components/chat_field.dart';
-import 'package:finance_bunny/components/chat_text.dart';
+import 'package:finance_bunny/components/user_prompt.dart';
 import 'package:finance_bunny/controller/chat_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class ChatScreen extends StatelessWidget {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (e, index) {
                       return Column(children: [
-                        ChatText(msg: snapshot.data![index].userPrompt),
+                        UserPrompt(msg: snapshot.data![index].userPrompt),
                         ChatCard(data: snapshot.data![index]),
                         const Divider(),
                       ]);

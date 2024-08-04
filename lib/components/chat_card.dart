@@ -1,3 +1,4 @@
+import 'package:finance_bunny/data/color_data.dart';
 import 'package:finance_bunny/model/chat_model.dart';
 import 'package:finance_bunny/style/text_style.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +15,12 @@ class ChatCard extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.teal),
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        border: Border.all(color: colorData[data.category]!),
+        boxShadow: [
           BoxShadow(
-            color: Colors.teal,
-            offset: Offset(-5, 5),
+            offset: const Offset(-5, 5),
+            color: colorData[data.category]!,
           ),
         ],
       ),
@@ -34,14 +35,17 @@ class ChatCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.symmetric(vertical: 10),
           decoration: BoxDecoration(
-            color: Colors.teal.withOpacity(0.15),
+            color: colorData[data.category]!.withOpacity(0.15),
             borderRadius: BorderRadius.circular(5),
-            border: Border.all(color: Colors.teal, width: 2),
+            border: Border.all(color: colorData[data.category]!, width: 2),
           ),
           child: Row(children: [
-            Icon(Icons.savings, color: Colors.teal.withOpacity(0.5)),
+            Icon(
+              Icons.money,
+              color: colorData[data.category]!.withOpacity(0.5),
+            ),
             const SizedBox(width: 10),
-            Text(data.category, style: CustomTextStyle.tealSubHeading.style),
+            Text(data.category, style: CustomTextStyle.boldSubHeading.style),
             const Spacer(),
             Text(data.subCategory, style: CustomTextStyle.graySubHeading.style),
           ]),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ChatText extends StatelessWidget {
-  const ChatText({super.key, required this.msg});
+class UserPrompt extends StatelessWidget {
+  const UserPrompt({super.key, required this.msg});
 
   final String msg;
 

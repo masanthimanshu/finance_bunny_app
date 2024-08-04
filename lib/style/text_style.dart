@@ -6,7 +6,6 @@ enum CustomTextStyle {
   mediumHeading,
   boldSubHeading,
   graySubHeading,
-  tealSubHeading,
 }
 
 extension CustomTextStyleExtension on CustomTextStyle {
@@ -16,13 +15,6 @@ extension CustomTextStyleExtension on CustomTextStyle {
         return const TextStyle(
           fontSize: 14,
           color: Colors.grey,
-          fontWeight: FontWeight.bold,
-        );
-
-      case CustomTextStyle.tealSubHeading:
-        return const TextStyle(
-          fontSize: 14,
-          color: Colors.teal,
           fontWeight: FontWeight.bold,
         );
 

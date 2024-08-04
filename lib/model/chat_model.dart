@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+List<ChatModel> chatModelFromJson(List<Map<String, dynamic>> data) {
+  return List<ChatModel>.from(data.map((x) => ChatModel.fromJson(x)));
+}
+
 class ChatModel {
   final String user;
   final String amount;

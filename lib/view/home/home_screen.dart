@@ -1,5 +1,6 @@
 import 'package:finance_bunny/components/radial_chart.dart';
-import 'package:finance_bunny/components/side_drawer.dart';
+import 'package:finance_bunny/components/transaction_card.dart';
+import 'package:finance_bunny/controller/home_controller.dart';
 import 'package:finance_bunny/data/color_data.dart';
 import 'package:finance_bunny/style/text_style.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,7 @@ class HomeScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width / 2,
         ),
       ),
-      drawer: const Drawer(child: SideDrawer()),
-      body: Column(children: [
+      body: ListView(children: [
         Container(
           margin: const EdgeInsets.all(15),
           padding: const EdgeInsets.all(15),
@@ -33,7 +33,6 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.edit_note)),
             const SizedBox(height: 250, child: RadialChart()),
             GridView.builder(
               shrinkWrap: true,
@@ -61,6 +60,30 @@ class HomeScreen extends StatelessWidget {
             ),
           ]),
         ),
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text(
+            "Recent Transactions",
+            style: CustomTextStyle.mediumHeading.style,
+          ),
+        ),
+        FutureBuilder(
+            future: HomeController().recentTransactions(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return const Text("No Transactions yet");
+              }
+
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: snapshot.data!.length,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (e, index) => TransactionCard(
+                  data: snapshot.data![index],
+                ),
+              );
+            }),
+        const SizedBox(height: 50),
       ]),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.message),
