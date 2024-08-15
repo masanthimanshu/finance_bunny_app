@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,30 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBCQNRquRgg2YWLbSvA6QG2n8dvcBDg6_c',
-    appId: '1:402669899669:web:0fc9d57090e451b0c0309c',
-    messagingSenderId: '402669899669',
-    projectId: 'finance-bunny-83a83',
-    authDomain: 'finance-bunny-83a83.firebaseapp.com',
-    storageBucket: 'finance-bunny-83a83.appspot.com',
-    measurementId: 'G-KPGJ7ZZB34',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBPy16hEK-yTAkkK8STAi_LyX2HeY_iikA',
-    appId: '1:402669899669:android:25f5f3640437e709c0309c',
-    messagingSenderId: '402669899669',
-    projectId: 'finance-bunny-83a83',
-    storageBucket: 'finance-bunny-83a83.appspot.com',
+    apiKey: 'AIzaSyCtv7xBlN7VKdTfDfx0k99lT9Gnw5peI7w',
+    appId: '1:231877582596:android:9f9c28b5a3e113864b3a51',
+    messagingSenderId: '231877582596',
+    projectId: 'finance-bunny-2737a',
+    storageBucket: 'finance-bunny-2737a.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyARkVm5pX5AoUGAK_Pt3xhkcwtTDP21IH4',
-    appId: '1:402669899669:ios:31e8f2388aec2ec9c0309c',
-    messagingSenderId: '402669899669',
-    projectId: 'finance-bunny-83a83',
-    storageBucket: 'finance-bunny-83a83.appspot.com',
-    iosBundleId: 'com.example.financeBunny',
+    apiKey: 'AIzaSyCeKdo9LZX-FX7SAjL6_CmS_iS2SyPBd6Q',
+    appId: '1:231877582596:ios:e28a7bd8a452bbda4b3a51',
+    messagingSenderId: '231877582596',
+    projectId: 'finance-bunny-2737a',
+    storageBucket: 'finance-bunny-2737a.appspot.com',
+    iosBundleId: 'com.app.financebunny.financeBunny',
   );
 }

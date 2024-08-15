@@ -1,1 +1,22 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"finance-bunny-83a83","appId":"1:402669899669:android:25f5f3640437e709c0309c","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"finance-bunny-83a83","configurations":{"android":"1:402669899669:android:25f5f3640437e709c0309c","ios":"1:402669899669:ios:31e8f2388aec2ec9c0309c","web":"1:402669899669:web:0fc9d57090e451b0c0309c"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "finance-bunny-2737a",
+          "appId": "1:231877582596:android:9f9c28b5a3e113864b3a51",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "finance-bunny-2737a",
+          "configurations": {
+            "android": "1:231877582596:android:9f9c28b5a3e113864b3a51",
+            "ios": "1:231877582596:ios:e28a7bd8a452bbda4b3a51"
+          }
+        }
+      }
+    }
+  }
+}
