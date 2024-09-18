@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 final ThemeData appTheme = ThemeData(
   scaffoldBackgroundColor: Colors.white,
   textTheme: GoogleFonts.soraTextTheme(),
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     centerTitle: true,
     scrolledUnderElevation: 0,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.teal[50],
   ),
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(

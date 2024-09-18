@@ -1,3 +1,4 @@
+import 'package:finance_bunny/components/side_drawer.dart';
 import 'package:finance_bunny/components/transaction_card.dart';
 import 'package:finance_bunny/controller/home_controller.dart';
 import 'package:finance_bunny/style/text_style.dart';
@@ -9,32 +10,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          "assets/images/logo.png",
-          width: MediaQuery.of(context).size.width / 2,
-        ),
-      ),
-      body: ListView(padding: const EdgeInsets.all(20), children: [
-        Text("Recent Transactions", style: CustomTextStyle.mediumHeading.style),
-        FutureBuilder(
-            future: HomeController().recentTransactions(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return const Text("No Transactions yet");
-              }
-
-              return ListView.builder(
-                shrinkWrap: true,
-                itemCount: snapshot.data!.length,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (e, index) => TransactionCard(
-                  data: snapshot.data![index],
+      drawer: const Drawer(backgroundColor: Colors.white, child: SideDrawer()),
+      appBar: AppBar(title: const Text("Finance Bunny")),
+      body: FutureBuilder(
+        future: HomeController().recentTransactions(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "No transactions yet",
+                  style: CustomTextStyle.mediumHeading.style,
                 ),
-              );
-            }),
-        const SizedBox(height: 50),
-      ]),
+                const SizedBox(height: 100, width: double.infinity),
+                Image.asset("assets/images/arrow.png", width: 200),
+              ],
+            );
+          }
+
+          return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (e, index) {
+              return TransactionCard(data: snapshot.data![index]);
+            },
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.message),
         onPressed: () => Navigator.pushNamed(context, "/chat"),
